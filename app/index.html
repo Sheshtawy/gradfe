@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html ng-app="gradfe">
     <head>
         <meta charset="utf-8">
         <title>CORLD Tracks</title>
@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body>
+    <body >
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -27,18 +27,23 @@
                 <div class="container-full" id="map"></div>
                 <div class="panel panel-default" >
                   <div class="panel-body">
-                    <h3><b>CORLD</b> tracks</h3>
-                    <small>Graduation Project Prototype</small>
-                    <br/>
+                    <h3><b>CORLD</b> <span style="font-weight: 100;">tracks</span></h3>
+                    <small class="text-small text-muted">Graduation Project Prototype</small>
                     <hr/>
                     
 
-                    <label>Pick a date</label>
+                   <!--  <label>Pick a date</label>
                     <div class='input-group date' id='datetimepicker7'>
                         
                         <input type='text' class="form-control" />
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                         </span>
+                    </div> -->
+                    <pre>Selected date is: <em>{{dt.getDay()}}</em></pre>
+
+                    <h4>Pick a day</h4>
+                    <div style="display:inline-block; height: 250px;">
+                        <datepicker ng-model="dt" min-date="minDate" show-weeks="false"></datepicker>
                     </div>
                     <br/>
                     <label>Pick a street</label>
@@ -69,6 +74,7 @@
         <script src="../bower_components/leaflet/dist/leaflet-src.js"></script>
         <script src="../bower_components/moment/moment.js"></script>
         <script src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -98,7 +104,45 @@
 		function onMapClick(e) {
 		   var popup = L.popup();
 		   popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
-		}
+		};
+
+        var states = [{
+    "type": "Feature",
+    "properties": {"party": "Republican"},
+    "geometry": {
+        "type": "LineString",
+        "coordinates": [
+            [-104.05, 48.99],
+            [-97.22,  48.98],
+            [-96.58,  45.94],
+            [-104.03, 45.94],
+            [-104.05, 48.99]
+        ]
+    }
+}, {
+    "type": "Feature",
+    "properties": {"party": "Democrat"},
+    "geometry": {
+        "type": "LineString",
+        "coordinates": [
+            [-109.05, 41.00],
+            [-102.06, 40.99],
+            [-102.03, 36.99],
+            [-109.04, 36.99],
+            [-109.05, 41.00]
+        ]
+    }
+}];
+L.geoJson(states, {
+    style: function(feature) {
+        switch (feature.properties.party) {
+            case 'Republican': return {color: "#ff0000"};
+            case 'Democrat':   return {color: "#0000ff"};
+        }
+    }
+}).addTo(map);
+
+
 
 		map.on('click', onMapClick);
 		var latlngs = [L.latLng(50.5, 30.5),L.latLng(30.1, 30.1),L.latLng(60.1, 40.1)];
@@ -119,6 +163,9 @@
         <script src="../bower_components/bootstrap/js/collapse.js"></script>
         <script src="../bower_components/bootstrap/js/tab.js"></script>
         <script src="../bower_components/leaflet/dist/leaflet.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+         <!-- <script src="../bower_components/angular-bootstrap-datepicker/dist/angular-bootstrap-datepicker.js"></script> -->
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
