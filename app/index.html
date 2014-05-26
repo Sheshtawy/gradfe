@@ -11,6 +11,7 @@
         <!-- bower:css -->
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css" />
+        <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -26,7 +27,38 @@
                 <div class="container-full" id="map"></div>
                 <div class="panel panel-default" >
                   <div class="panel-body">
-                    Basic panel example
+                    <h3><b>CORLD</b> tracks</h3>
+                    <small>Graduation Project Prototype</small>
+                    <br/>
+                    <hr/>
+                    
+
+                    <label>Pick a date</label>
+                    <div class='input-group date' id='datetimepicker7'>
+                        
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <br/>
+                    <label>Pick a street</label>
+                    <div class="form-group">
+                        <select>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                        </select>
+
+                    </div>
+                    <br/>
+                    <br/>
+
+                    <button type="button" class="btn btn-success btn-block">Predict !</button>
+
                   </div>
                 </div>
 
@@ -35,6 +67,8 @@
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/leaflet/dist/leaflet-src.js"></script>
+        <script src="../bower_components/moment/moment.js"></script>
+        <script src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -114,5 +148,15 @@
 		var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 
 	</script>
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker7').datetimepicker({
+                    defaultDate: "11/1/14",
+                    useMinutes: false,               //en/disables the minutes picker
+                    useSeconds: false,               //en/disables the seconds picker
+                 
+                });
+            });
+        </script>
 </body>
 </html>

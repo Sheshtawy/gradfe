@@ -4,7 +4,8 @@
   "dependencies": {
     "bootstrap": "~3.0.3",
     "jquery": "~1.11.0",
-    "leaflet": "~0.7.3"
+    "leaflet": "~0.7.3",
+    "eonasdan-bootstrap-datetimepicker": "~3.0.0"
   },
   "devDependencies": {}
 }
