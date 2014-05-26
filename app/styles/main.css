@@ -7,8 +7,30 @@
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /*padding-top: 20px;
+    padding-bottom: 20px;*/
+}
+
+.panel{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.container-full {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.container-full:after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /*background: url('/images/wallpaper_1413429255.jpg') no-repeat center center;*/
+  background-size: cover;
+  z-index: -1;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
