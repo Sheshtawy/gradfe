@@ -46,8 +46,42 @@
                         <datepicker ng-model="dt" min-date="minDate" show-weeks="false"></datepicker>
                     </div>
                     <br/>
-                    <label>Pick a street</label>
-                    <div class="form-group">
+                <div class="row">
+                    
+                    <div class="col-md-5">
+                        <label>Pick an hour</label>
+                        <div class="form-group">
+                        <select>
+                          <option value="6">6 am</option>
+                          <option value="7">7 am</option>
+                          <option value="8">8 am</option>
+                          <option value="9">9 am</option>
+                          <option value="10">10 am</option>
+                          <option value="11">11 am</option>
+                          <option value="12">12 pm</option>
+                          <option value="13">1 pm</option>
+                          <option value="14">2 pm</option>
+                          <option value="15">3 pm</option>
+                          <option value="16">4 pm</option>
+                          <option value="17">5 pm</option>
+                          <option value="18">6 pm</option>
+                          <option value="19">7 pm</option>
+                          <option value="20">8 pm</option>
+                          <option value="21">9 pm</option>
+                          <option value="22">10 pm</option>
+                          <option value="23">11 pm</option>
+                          <option value="24">12 am </option>
+                          <option value="1">1 am</option>
+                          <option value="2">2 am</option>
+
+                        </select>
+
+                    </div>
+
+                    </div>
+                    <div class="col-md-5">
+                        <label>Pick a street</label>
+                        <div class="form-group">
                         <select>
                           <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
                           <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
@@ -58,8 +92,9 @@
                           <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
                         </select>
 
+                        </div>
                     </div>
-                    <br/>
+                </div>
                     <br/>
 
                     <button type="button" class="btn btn-success btn-block">Predict !</button>
