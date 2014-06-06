@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css" />
         <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+        <link rel="stylesheet" href="../bower_components/clockpicker/dist/jquery-clockpicker.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -25,6 +26,36 @@
 
             
                 <div class="container-full" id="map"></div>
+                <div class="btn-group-vertical btn-group-xs float-btn-group">
+                  <button type="button" class="btn btn-default">6 am</button>
+                  <button type="button" class="btn btn-default">7 am</button>
+                  <button type="button" class="btn btn-default">8 am</button>
+                  <button type="button" class="btn btn-default">9 am</button>
+                  <button type="button" class="btn btn-default">10 am</button>
+                  <button type="button" class="btn btn-default">11 am</button>
+                  <button type="button" class="btn btn-default">12 pm</button>
+                  <button type="button" class="btn btn-default">1 pm</button>
+                  <button type="button" class="btn btn-default">2 pm</button>
+                  <button type="button" class="btn btn-default">3 pm</button>
+                  <button type="button" class="btn btn-default">4 pm</button>
+                  <button type="button" class="btn btn-default">5 pm</button>
+                  <button type="button" class="btn btn-default">6 pm</button>
+                  <button type="button" class="btn btn-default">7 pm</button>
+                  <button type="button" class="btn btn-default">8 pm</button>
+                  <button type="button" class="btn btn-default">9 pm</button>
+                  <button type="button" class="btn btn-default">10 pm</button>
+                  <button type="button" class="btn btn-default">11 pm</button>
+                  <button type="button" class="btn btn-default">12 am</button>
+                  <button type="button" class="btn btn-default">1 am</button>
+                  <button type="button" class="btn btn-default">2 am</button>
+                </div>
+                <!-- <div class="input-group col-md-4 clockpicker float-btn-group">
+                    <input type="text" class="form-control" value="" id="single-input">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div> -->
+                
                 <div class="panel panel-default" >
                   <div class="panel-body">
                     <h3><b>CORLD</b> <span style="font-weight: 100;">tracks</span></h3>
@@ -109,7 +140,7 @@
         <script src="../bower_components/leaflet/dist/leaflet-src.js"></script>
         <script src="../bower_components/moment/moment.js"></script>
         <script src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-        
+        <script src="../bower_components/clockpicker/dist/jquery-clockpicker.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -240,5 +271,16 @@ L.geoJson(states, {
                 });
             });
         </script>
+        <!-- 
+        <script type="text/javascript">
+                var input = $('#single-input').clockpicker({
+                'placement': 'bottom',
+                'align': 'left',
+                'autoclose': false,
+                'default': 'now'
+                });
+                input.clockpicker('show')
+                            </script>
+                             -->
 </body>
 </html>

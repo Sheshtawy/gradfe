@@ -1,0 +1,20 @@
+  [{ "type": "LineString",
+    "coordinates": [ [52.1528, 21.0174], [52.1576, 20.9913] ]
+  },
+  { "type": "LineString",
+    "coordinates": [ [52.1581, 20.9920], [52.1586, 20.9922] ]
+  }
+,
+  { "type": "LineString",
+    "coordinates": [ [52.1589, 20.9923], [52.1595, 20.9923] ]
+  }
+,
+  { "type": "LineString",
+    "coordinates": [ [52.1528, 21.0174], [52.1576, 20.9913] ]
+  }
+,
+  { "type": "LineString",
+    "coordinates": [ [52.1528, 21.0174], [52.1576, 20.9913] ]
+  }
+
+]

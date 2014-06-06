@@ -5,3 +5,4 @@ var DatepickerDemoCtrl = function ($scope) {
   };
   $scope.today();
 }
+
