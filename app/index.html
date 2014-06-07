@@ -19,13 +19,13 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
-    <body >
+    <body ng-controller="mainCtrl">
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
             
-                <div class="container-full" id="map"></div>
+                <div class="container-full" id="map" ></div>
                 <div class="btn-group-vertical btn-group-xs float-btn-group">
                   <button type="button" class="btn btn-default">6 am</button>
                   <button type="button" class="btn btn-default">7 am</button>
@@ -141,6 +141,7 @@
         <script src="../bower_components/moment/moment.js"></script>
         <script src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
         <script src="../bower_components/clockpicker/dist/jquery-clockpicker.js"></script>
+        
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -154,116 +155,108 @@
         //     ga('create','UA-XXXXX-X');ga('send','pageview'); -->
         <!-- // </script> -->
         <script type="text/javascript">
-		var map = L.map('map').setView([52.2333, 21.0167], 13);
-				L.tileLayer('http://{s}.tiles.mapbox.com/v3/sheshtawy.ibem9ljd/{z}/{x}/{y}.png', {
-		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-		    maxZoom: 18
-		}).addTo(map);
+		
 
-		var marker = L.marker([51.5, -0.09]).addTo(map);
-		marker.bindPopup("Ohh sheshtawy");
-		var circle = L.circle([51.508, -0.11], 500, {
-    		color: 'red',
-		    fillColor: '#f03',
-		    fillOpacity: 0.5
-		}).addTo(map);
+		// var marker = L.marker([51.5, -0.09]).addTo(map);
+		// marker.bindPopup("Ohh sheshtawy");
+		// var circle = L.circle([51.508, -0.11], 500, {
+  //   		color: 'red',
+		//     fillColor: '#f03',
+		//     fillOpacity: 0.5
+		// }).addTo(map);
 		// function onMapClick(e) {
 		//    var popup = L.popup();
 		//    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
 		// };
 
-        var states = [
-        { "type" : "Feature",
+        // var states = [
+        // { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[21.0174,52.1556], [21.0175,52.1543]]},
-        "properties" : { "id" : 33, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0174,52.1556], [21.0175,52.1543]]},
+        // "properties" : { "id" : 33, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
-        "properties" : { "id" : 34, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
+        // "properties" : { "id" : 34, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
-        "properties" : { "id" : 35, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 3}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
+        // "properties" : { "id" : 35, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
-        "properties" : { "id" : 36, "clusterID" : 2, "timestamp" : "2014-01-01 16:00:00", "status": 4}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        // "properties" : { "id" : 36, "clusterID" : 2, "timestamp" : "2014-01-01 16:00:00", "status": 4}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
-        "properties" : { "id" : 37, "clusterID" : 2, "timestamp" : "2014-01-01 17:00:00", "status": 5}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        // "properties" : { "id" : 37, "clusterID" : 2, "timestamp" : "2014-01-01 17:00:00", "status": 5}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
-        "properties" : { "id" : 38, "clusterID" : 2, "timestamp" : "2014-01-01 18:00:00", "status": 3}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        // "properties" : { "id" : 38, "clusterID" : 2, "timestamp" : "2014-01-01 18:00:00", "status": 3}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
-        "properties" : { "id" : 39, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        // "properties" : { "id" : 39, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
-        "properties" : { "id" : 40, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 4}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        // "properties" : { "id" : 40, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 4}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
-        "properties" : { "id" : 41, "clusterID" : 3, "timestamp" : "2014-01-01 18:00:00", "status": 5}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        // "properties" : { "id" : 41, "clusterID" : 3, "timestamp" : "2014-01-01 18:00:00", "status": 5}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
-        "properties" : { "id" : 42, "clusterID" : 1, "timestamp" : "2014-01-01 16:00:00", "status": 2}
-        },
-         { "type" : "Feature",
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
+        // "properties" : { "id" : 42, "clusterID" : 1, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        // },
+        //  { "type" : "Feature",
         
-        "geometry" : {
-                "type" : "LineString",
-                "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
-        "properties" : { "id" : 43, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
-        }]
-        var st = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
-};
-L.geoJson(states, {
-    style: st
-}).addTo(map);
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
+        // "properties" : { "id" : 43, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        // }];
+        
+// L.geoJson(states, {
+//     style: st
+// }).addTo(map);
 
 
 
-		map.on('click', onMapClick);
-		var latlngs = [L.latLng(50.5, 30.5),L.latLng(30.1, 30.1),L.latLng(60.1, 40.1)];
-		var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+		// map.on('click', onMapClick);
+		// var latlngs = [L.latLng(50.5, 30.5),L.latLng(30.1, 30.1),L.latLng(60.1, 40.1)];
+		// var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 
 	</script>
         <!-- build:js scripts/plugins.js -->
@@ -282,34 +275,35 @@ L.geoJson(states, {
         <script src="../bower_components/leaflet/dist/leaflet.js"></script>
         <script src="../bower_components/angular/angular.js"></script>
         <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="../bower_components/angular-resource/angular-resource.js"></script>
          <!-- <script src="../bower_components/angular-bootstrap-datepicker/dist/angular-bootstrap-datepicker.js"></script> -->
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
+        <script src="../scripts/main.js"></script>
         <!-- endbuild -->
         <script type="text/javascript">
-		var map = L.map('map').setView([51.505, -0.09], 13);
-				L.tileLayer('http://{s}.tiles.mapbox.com/v3/sheshtawy.ibem9ljd/{z}/{x}/{y}.png', {
-		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-		    maxZoom: 18
-		}).addTo(map);
+		// var map = L.map('map').setView([51.505, -0.09], 13);
+		// 		L.tileLayer('http://{s}.tiles.mapbox.com/v3/sheshtawy.ibem9ljd/{z}/{x}/{y}.png', {
+		//     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		//     maxZoom: 18
+		// }).addTo(map);
 
-		var marker = L.marker([51.5, -0.09]).addTo(map);
-		marker.bindPopup("Ohh sheshtawy");
-		var circle = L.circle([51.508, -0.11], 500, {
-    		color: 'red',
-		    fillColor: '#f03',
-		    fillOpacity: 0.5
-		}).addTo(map);
-		function onMapClick(e) {
-		   var popup = L.popup();
-		   popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
-		}
+		// var marker = L.marker([51.5, -0.09]).addTo(map);
+		// marker.bindPopup("Ohh sheshtawy");
+		// var circle = L.circle([51.508, -0.11], 500, {
+  //   		color: 'red',
+		//     fillColor: '#f03',
+		//     fillOpacity: 0.5
+		// }).addTo(map);
+		// function onMapClick(e) {
+		//    var popup = L.popup();
+		//    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
+		// }
 
-		map.on('click', onMapClick);
-		var latlngs = [L.latLng(50.5, 30.5),L.latLng(30.1, 30.1),L.latLng(60.1, 40.1)];
-		var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+		// map.on('click', onMapClick);
+		// var latlngs = [L.latLng(50.5, 30.5),L.latLng(30.1, 30.1),L.latLng(60.1, 40.1)];
+		// var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 
 	</script>
     <script type="text/javascript">
