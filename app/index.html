@@ -154,7 +154,7 @@
         //     ga('create','UA-XXXXX-X');ga('send','pageview'); -->
         <!-- // </script> -->
         <script type="text/javascript">
-		var map = L.map('map').setView([51.505, -0.09], 13);
+		var map = L.map('map').setView([52.2333, 21.0167], 13);
 				L.tileLayer('http://{s}.tiles.mapbox.com/v3/sheshtawy.ibem9ljd/{z}/{x}/{y}.png', {
 		    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		    maxZoom: 18
@@ -167,45 +167,96 @@
 		    fillColor: '#f03',
 		    fillOpacity: 0.5
 		}).addTo(map);
-		function onMapClick(e) {
-		   var popup = L.popup();
-		   popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
-		};
+		// function onMapClick(e) {
+		//    var popup = L.popup();
+		//    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
+		// };
 
-        var states = [{
-    "type": "Feature",
-    "properties": {"party": "Republican"},
-    "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [-104.05, 48.99],
-            [-97.22,  48.98],
-            [-96.58,  45.94],
-            [-104.03, 45.94],
-            [-104.05, 48.99]
-        ]
-    }
-}, {
-    "type": "Feature",
-    "properties": {"party": "Democrat"},
-    "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [-109.05, 41.00],
-            [-102.06, 40.99],
-            [-102.03, 36.99],
-            [-109.04, 36.99],
-            [-109.05, 41.00]
-        ]
-    }
-}];
+        var states = [
+        { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[21.0174,52.1556], [21.0175,52.1543]]},
+        "properties" : { "id" : 33, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
+        "properties" : { "id" : 34, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
+        "properties" : { "id" : 35, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        "properties" : { "id" : 36, "clusterID" : 2, "timestamp" : "2014-01-01 16:00:00", "status": 4}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        "properties" : { "id" : 37, "clusterID" : 2, "timestamp" : "2014-01-01 17:00:00", "status": 5}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        "properties" : { "id" : 38, "clusterID" : 2, "timestamp" : "2014-01-01 18:00:00", "status": 3}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        "properties" : { "id" : 39, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        "properties" : { "id" : 40, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 4}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        "properties" : { "id" : 41, "clusterID" : 3, "timestamp" : "2014-01-01 18:00:00", "status": 5}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
+        "properties" : { "id" : 42, "clusterID" : 1, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        },
+         { "type" : "Feature",
+        
+        "geometry" : {
+                "type" : "LineString",
+                "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
+        "properties" : { "id" : 43, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        }]
+        var st = {
+    "color": "#ff7800",
+    "weight": 5,
+    "opacity": 0.65
+};
 L.geoJson(states, {
-    style: function(feature) {
-        switch (feature.properties.party) {
-            case 'Republican': return {color: "#ff0000"};
-            case 'Democrat':   return {color: "#0000ff"};
-        }
-    }
+    style: st
 }).addTo(map);
 
 
