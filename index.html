@@ -1,0 +1,331 @@
+<!doctype html>
+<html ng-app="gradfe">
+    <head>
+        <meta charset="utf-8">
+        <title>CORLD Tracks</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css" />
+        <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+        <link rel="stylesheet" href="../bower_components/clockpicker/dist/jquery-clockpicker.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-controller="mainCtrl">
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+            
+                <div class="container-full" id="map" ></div>
+                <div class="btn-group-vertical btn-group-xs float-btn-group">
+                  <button type="button" class="btn btn-default">6 am</button>
+                  <button type="button" class="btn btn-default">7 am</button>
+                  <button type="button" class="btn btn-default">8 am</button>
+                  <button type="button" class="btn btn-default">9 am</button>
+                  <button type="button" class="btn btn-default">10 am</button>
+                  <button type="button" class="btn btn-default">11 am</button>
+                  <button type="button" class="btn btn-default">12 pm</button>
+                  <button type="button" class="btn btn-default">1 pm</button>
+                  <button type="button" class="btn btn-default">2 pm</button>
+                  <button type="button" class="btn btn-default">3 pm</button>
+                  <button type="button" class="btn btn-default">4 pm</button>
+                  <button type="button" class="btn btn-default">5 pm</button>
+                  <button type="button" class="btn btn-default">6 pm</button>
+                  <button type="button" class="btn btn-default">7 pm</button>
+                  <button type="button" class="btn btn-default">8 pm</button>
+                  <button type="button" class="btn btn-default">9 pm</button>
+                  <button type="button" class="btn btn-default">10 pm</button>
+                  <button type="button" class="btn btn-default">11 pm</button>
+                  <button type="button" class="btn btn-default">12 am</button>
+                  <button type="button" class="btn btn-default">1 am</button>
+                  <button type="button" class="btn btn-default">2 am</button>
+                </div>
+                <!-- <div class="input-group col-md-4 clockpicker float-btn-group">
+                    <input type="text" class="form-control" value="" id="single-input">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div> -->
+                
+                <div class="panel panel-default" >
+                  <div class="panel-body">
+                    <h3><b>CORLD</b> <span style="font-weight: 100;">tracks</span></h3>
+                    <small class="text-small text-muted">Graduation Project Prototype</small>
+                    <hr/>
+                    
+
+                   <!--  <label>Pick a date</label>
+                    <div class='input-group date' id='datetimepicker7'>
+                        
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div> -->
+                    <pre>Selected date is: <em>{{dt.getDay()}}</em></pre>
+
+                    <h4>Pick a day</h4>
+                    <div style="display:inline-block; height: 250px;">
+                        <datepicker ng-model="dt" min-date="minDate" show-weeks="false"></datepicker>
+                    </div>
+                    <br/>
+                <div class="row">
+                    
+                    <div class="col-md-5">
+                        <label>Pick an hour</label>
+                        <div class="form-group">
+                        <select>
+                          <option value="6">6 am</option>
+                          <option value="7">7 am</option>
+                          <option value="8">8 am</option>
+                          <option value="9">9 am</option>
+                          <option value="10">10 am</option>
+                          <option value="11">11 am</option>
+                          <option value="12">12 pm</option>
+                          <option value="13">1 pm</option>
+                          <option value="14">2 pm</option>
+                          <option value="15">3 pm</option>
+                          <option value="16">4 pm</option>
+                          <option value="17">5 pm</option>
+                          <option value="18">6 pm</option>
+                          <option value="19">7 pm</option>
+                          <option value="20">8 pm</option>
+                          <option value="21">9 pm</option>
+                          <option value="22">10 pm</option>
+                          <option value="23">11 pm</option>
+                          <option value="24">12 am </option>
+                          <option value="1">1 am</option>
+                          <option value="2">2 am</option>
+
+                        </select>
+
+                    </div>
+
+                    </div>
+                    <div class="col-md-5">
+                        <label>Pick a street</label>
+                        <div class="form-group">
+                        <select>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                          <option value="Bla Bla Bla Street">Bla Bla Bla Street</option>
+                        </select>
+
+                        </div>
+                    </div>
+                </div>
+                    <br/>
+
+                    <button type="button" class="btn btn-success btn-block">Predict !</button>
+
+                  </div>
+                </div>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/leaflet/dist/leaflet-src.js"></script>
+        <script src="../bower_components/moment/moment.js"></script>
+        <script src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="../bower_components/clockpicker/dist/jquery-clockpicker.js"></script>
+        
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- // <script> -->
+        <!-- //     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        //     function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        //     e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        //     e.src='//www.google-analytics.com/analytics.js';
+        //     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        //     ga('create','UA-XXXXX-X');ga('send','pageview'); -->
+        <!-- // </script> -->
+        <script type="text/javascript">
+		
+
+		// var marker = L.marker([51.5, -0.09]).addTo(map);
+		// marker.bindPopup("Ohh sheshtawy");
+		// var circle = L.circle([51.508, -0.11], 500, {
+  //   		color: 'red',
+		//     fillColor: '#f03',
+		//     fillOpacity: 0.5
+		// }).addTo(map);
+		// function onMapClick(e) {
+		//    var popup = L.popup();
+		//    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
+		// };
+
+        // var states = [
+        // { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0174,52.1556], [21.0175,52.1543]]},
+        // "properties" : { "id" : 33, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
+        // "properties" : { "id" : 34, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0137,52.1795], [21.0135,52.1796]]},
+        // "properties" : { "id" : 35, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        // "properties" : { "id" : 36, "clusterID" : 2, "timestamp" : "2014-01-01 16:00:00", "status": 4}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        // "properties" : { "id" : 37, "clusterID" : 2, "timestamp" : "2014-01-01 17:00:00", "status": 5}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.9303,52.1225], [20.9347,52.1213]]},
+        // "properties" : { "id" : 38, "clusterID" : 2, "timestamp" : "2014-01-01 18:00:00", "status": 3}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        // "properties" : { "id" : 39, "clusterID" : 3, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        // "properties" : { "id" : 40, "clusterID" : 3, "timestamp" : "2014-01-01 17:00:00", "status": 4}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[21.0436,52.1418], [21.0445,52.1421]]},
+        // "properties" : { "id" : 41, "clusterID" : 3, "timestamp" : "2014-01-01 18:00:00", "status": 5}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
+        // "properties" : { "id" : 42, "clusterID" : 1, "timestamp" : "2014-01-01 16:00:00", "status": 2}
+        // },
+        //  { "type" : "Feature",
+        
+        // "geometry" : {
+        //         "type" : "LineString",
+        //         "coordinates" : [[20.8992,52.1348], [20.8999,52.1369]]},
+        // "properties" : { "id" : 43, "clusterID" : 1, "timestamp" : "2014-01-01 17:00:00", "status": 3}
+        // }];
+        
+// L.geoJson(states, {
+//     style: st
+// }).addTo(map);
+
+
+
+		// map.on('click', onMapClick);
+		// var latlngs = [L.latLng(50.5, 30.5),L.latLng(30.1, 30.1),L.latLng(60.1, 40.1)];
+		// var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+	</script>
+        <!-- build:js scripts/plugins.js -->
+        <script src="../bower_components/bootstrap/js/affix.js"></script>
+        <script src="../bower_components/bootstrap/js/alert.js"></script>
+        <script src="../bower_components/bootstrap/js/dropdown.js"></script>
+        <script src="../bower_components/bootstrap/js/tooltip.js"></script>
+        <script src="../bower_components/bootstrap/js/modal.js"></script>
+        <script src="../bower_components/bootstrap/js/transition.js"></script>
+        <script src="../bower_components/bootstrap/js/button.js"></script>
+        <script src="../bower_components/bootstrap/js/popover.js"></script>
+        <script src="../bower_components/bootstrap/js/carousel.js"></script>
+        <script src="../bower_components/bootstrap/js/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap/js/collapse.js"></script>
+        <script src="../bower_components/bootstrap/js/tab.js"></script>
+        <script src="../bower_components/leaflet/dist/leaflet.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="../bower_components/angular-resource/angular-resource.js"></script>
+         <!-- <script src="../bower_components/angular-bootstrap-datepicker/dist/angular-bootstrap-datepicker.js"></script> -->
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript">
+		// var map = L.map('map').setView([51.505, -0.09], 13);
+		// 		L.tileLayer('http://{s}.tiles.mapbox.com/v3/sheshtawy.ibem9ljd/{z}/{x}/{y}.png', {
+		//     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		//     maxZoom: 18
+		// }).addTo(map);
+
+		// var marker = L.marker([51.5, -0.09]).addTo(map);
+		// marker.bindPopup("Ohh sheshtawy");
+		// var circle = L.circle([51.508, -0.11], 500, {
+  //   		color: 'red',
+		//     fillColor: '#f03',
+		//     fillOpacity: 0.5
+		// }).addTo(map);
+		// function onMapClick(e) {
+		//    var popup = L.popup();
+		//    popup.setLatLng(e.latlng).setContent("You clicked the map at " + e.latlng.toString()).openOn(map);
+		// }
+
+		// map.on('click', onMapClick);
+		// var latlngs = [L.latLng(50.5, 30.5),L.latLng(30.1, 30.1),L.latLng(60.1, 40.1)];
+		// var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+	</script>
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker7').datetimepicker({
+                    defaultDate: "11/1/14",
+                    useMinutes: false,               //en/disables the minutes picker
+                    useSeconds: false,               //en/disables the seconds picker
+                 
+                });
+            });
+        </script>
+        <!-- 
+        <script type="text/javascript">
+                var input = $('#single-input').clockpicker({
+                'placement': 'bottom',
+                'align': 'left',
+                'autoclose': false,
+                'default': 'now'
+                });
+                input.clockpicker('show')
+                            </script>
+                             -->
+</body>
+</html>
