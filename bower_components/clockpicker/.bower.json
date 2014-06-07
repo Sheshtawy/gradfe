@@ -1,0 +1,43 @@
+{
+  "name": "clockpicker",
+  "description": "A clock-style timepicker for Bootstrap (or jQuery)",
+  "version": "0.0.6",
+  "main": [
+    "dist/jquery-clockpicker.js",
+    "dist/jquery-clockpicker.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*",
+    "!dist/*"
+  ],
+  "keywords": [
+    "timepicker",
+    "jquery"
+  ],
+  "authors": [
+    {
+      "name": "Wang Shenwei",
+      "email": "wangshenwei@qq.com",
+      "homepage": "http://wangshenwei.com/"
+    }
+  ],
+  "homepage": "http://weareoutman.github.io/clockpicker/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/weareoutman/clockpicker.git"
+  },
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "_release": "0.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.6",
+    "commit": "d0469d9ce04c4ffaa3c060d5732356361cec3bb3"
+  },
+  "_source": "git://github.com/weareoutman/clockpicker.git",
+  "_target": "~0.0.6",
+  "_originalSource": "clockpicker",
+  "_direct": true
+}
